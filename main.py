@@ -99,7 +99,7 @@ resources = {
 # coffee_machine()
 
 #######################################################################################################################################################################
-## Version 2 ( alot simpler)
+## Version 2.1 ( alot simpler, more informative. follows proper structure of process)
 
 def is_resource_enough(choice):
     ingredients = menu[choice]
@@ -109,13 +109,13 @@ def is_resource_enough(choice):
             if resources["milk"] >= drink["milk"]:
                 return True
             else:
-                print(f'There is not enough milk, you need {resources["milk"]}ml')
+                print(f'There is not enough milk, you need {drink["milk"] -resources["milk"]}ml more!')
                 return False
         else:
-            print(f'There is not enough coffee, you need {resources["coffee"]}ml')
+            print(f'There is not enough coffee, you need {drink["coffee"] - resources["coffee"]}ml more!')
             return False
     else:
-        print(f'There is not enough water, you need {resources["water"]}ml')
+        print(f'There is not enough water, you need {drink["water"] - resources["water"]}ml more!')
         return False
 
 
@@ -171,5 +171,3 @@ def coffee_machine():
 
 
 coffee_machine()
-
-
